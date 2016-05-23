@@ -1,0 +1,4 @@
+#!/bin/bash
+# Conveince command to push the static site to the master branch.
+
+git subtree push --prefix public origin master
