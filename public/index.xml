@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jonathan Foox</title>
+    <link>http://jfoox.github.io/</link>
+    <description>Recent content on Jonathan Foox</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 May 2016 16:06:42 -0400</lastBuildDate>
+    <atom:link href="http://jfoox.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>How bad have the Knicks been this century?</title>
+      <link>http://jfoox.github.io/post/how-bad-knicks-century/</link>
+      <pubDate>Thu, 19 May 2016 16:06:42 -0400</pubDate>
+      
+      <guid>http://jfoox.github.io/post/how-bad-knicks-century/</guid>
+      <description>&lt;p&gt;All statistics courtesy of &lt;a href=&#34;http://www.basketball-reference.com&#34; target=&#34;_blank&#34;&gt;basketball-reference.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The New York Knicks have a reputation for ineptitude. They have not won a national championship since 1973; they have won only two playoff series in this millennium; they blundered their way through a sexual harassment lawsuit for which they still deny wrongdoing; and their owner is as bad as his job as he is tone deaf to the world surrounding him.&lt;/p&gt;
+
+&lt;p&gt;Setting aside their odious management, the Knicks on the court have been downright bad. After a run of competitiveness throughout the 90s, the team has struggled to compete. Momentary glimpses of hope—trading for Stephon Marbury in 2003, signing Amare Stoudemire in 2010, Linsanity in 2012, setting three point records in a 54-win 2013-14 season—have been just as quickly dashed, respectively including shipping out Keith Van Horn, the meeting of Amare’s fist with a Miami fire extinguisher, the shocking decision not to match Houston’s offer sheet for Jeremy Lin, and trading for Andrea Bargnani, arguably one of the worst trades in NBA history.&lt;/p&gt;
+
+&lt;p&gt;But the Knicks reside in New York, a city reputed for its histrionics and ethnocentrism. Knicks fans might claim that they’ve had it worse than any NBA team’s fans, but would they be right? Have the Knicks been the worst team in the league sine their fall from relevance at the turn of the century? To investigate, I took a look at seasonal data since the 1999-00 NBA season, courtesy of &lt;a href=&#34;http://www.basketball-reference.com&#34; target=&#34;_blank&#34;&gt;basketball-reference.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To do so, I mined all data using custom written Python scripts, and visualized all data using the pandas library built on MATLAB. In fact, this project was my catalyst for learning pandas—after all, what better way to learn this library than by using it to research the Knicks and depress the hell out of myself?&lt;/p&gt;
+
+&lt;p&gt;I first scraped win/loss records for every team over the past 16 seasons, including this season through ~68 games. A simple cumulation plot shows how teams have fared over that timeframe:&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;http://jfoox.github.io/jonathanfoox/img/cum_winloss.png&#34;  /&gt;
+&lt;/figure&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;As it turns out, the Knicks, although towards the bottom with -183 win differential (average of 11.2 games under .500, or 35.5 wins per year), were not the absolute worst cumulatively. That honor belongs to the Washington Wizards, with a whopping -248 win differential, and an average of 15.5 games under .500, or 33.25 wins per year. This came as somewhat of a surprise, given that the team managed to make the playoffs for four years in a row in the mid 2000s, during their DeShawn Stevenson/Agent Zero/LeBron James trash talking triangle heyday. However, their best season in that stretch only totaled 45 wins, and they had not come anywhere near that mark until very recently.&lt;/p&gt;
+
+&lt;p&gt;Also below the Knicks were the Charlotte Hornets/Bobcats(/Hornets again), who notably suffered the worst regular season in terms of winning percentage when they went 9-53 in a lockout-shortened 2011 season, and the Minnesota Timberwolves, who have suffered an abysmal stretch since reaching the Western Conference Finals in 2004.&lt;/p&gt;
+
+&lt;p&gt;However, of note is that each of these teams is in a significantly better position to compete going forward than New York. The Wizards are currently two games out of 8th place and a third straight playoff berth, the TImberwolves are building a core around a pair of first-overall picks in Andrew Wiggins and Karl-Anthony Towns, and the Charlotte Hornets have won 17 of their past 21 games, quickly becoming a dark horse favorite in the Eastern Conference. Teams whose nadirs fell well below the Knicks’ in previous seasons but who have since leapfrogged them are similarly better off, including the Golden State Warriors and the Los Angeles Clippers.&lt;/p&gt;
+
+&lt;p&gt;One sticking point for Knicks fans is the endless turnover of the roster. No team going into training camp on any given October resembles much of the team that came into camp a season prior. The lack of continuity has been cited as a persistant source of the team’s struggles. However, plotting turnover rate—measured by the roster of all players used in a full season compared to the season beforehand—reveals that the Knicks are not the worst culprits here, either:&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;http://jfoox.github.io/jonathanfoox/img/_turnover2000.png&#34;  /&gt;
+&lt;/figure&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;Teams with more turnover include franchises who have consistently struggled but for brief stretches like the Knicks, including New Jersey/Brooklyn, the Clippers, Cleveland, Philadelphia, Houston, Atlanta, Toronto, and Phoenix. Interestingly, although successful teams like the Spurs and Lakers fall towards the bottom, that end of the spectrum does not well predict the best teams over the same stretch, as the Pacers and Jazz have had the least turnover. High turnover rate is a better predictor of failure than low turnover rate is a predictor of success.&lt;/p&gt;
+
+&lt;p&gt;Perhaps roster turnover over such a long stretch is meaningless, given the relatively short average span of a player’s career. Recently, a statistic floated around that Carmelo Anthony has had 70 teammates since joining the Knicks five years ago. Presumably, creating a winning environment for him should have entailed roster stability, and the Knicks ought to have had some of the least turnover since trading for Carmelo. Looking at the numbers tells otherwise:&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;http://jfoox.github.io/jonathanfoox/img/_turnover2012.png&#34;  /&gt;
+&lt;/figure&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;In fact, since Carmelo Anthony joined the Knicks, they have had one of the highest rates of turnover. Of the teams above them, only one arguably has a player that can be a core part of a championship team, and that would be the Dallas Mavericks with Dirk Nowitzki. In their case, they have swung big and struck out in free agency as they have tried to retool around him in the twilight of his career. The other groups, including Boston, Phoenix, and the “Trust the Process” Sixers, are in the midst of serious rebuilds. On the other end of the spectrum are teams like the Spurs, Warriors, and Thunder, who are built in win-now modes with rosters capable of winning a championship. (Interestingly, there are also teams like the Pacers, Bulls, and Nuggets, whose reasons for slow turnover are unclear.) In either event, few teams like the Knicks, who have had a championship-capable piece for so long, tend to continuously rebuild.&lt;/p&gt;
+
+&lt;p&gt;Last, but certainly not least, if there is one thing the Knicks are unequivocally known for, it’s spending money. From the Allan Houston $100M contract, to the Amare Stoudemire $100M contract, and so many in between, New York has not shied away from pouring cash at their problems. Unfortunately, spending has not translated into success. An analysis at cost per win reveals that no one even comes close to New York:&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;http://jfoox.github.io/jonathanfoox/img/_costperwin.png&#34;  /&gt;
+&lt;/figure&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;So don’t fret, Knicks fans. Your team may not have had the absolute worst win/loss differential, but they have had the fourth worse, and they are in a worse position than the three below them. Your team may not have had the highest rate of turnover, but they have had an unusually high rate for a team with a championship-caliber player. And your team has certainly been willing to spend the most amount of money for the least rate of return. At just over $2.5M spent per win, and with no other team even crossing $2M per win (not even the Prokhorov Nets!), the Knicks smoke their competition—likely using an enflamed $100 bill as a lighter. All this combined, if the Knicks haven’t been the worst team of the century, there is certainly a case to be made for them to be near the very bottom.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://jfoox.github.io/about/</link>
+      <pubDate>Mon, 16 May 2016 20:26:23 -0400</pubDate>
+      
+      <guid>http://jfoox.github.io/about/</guid>
+      <description>
+
+&lt;h3 id=&#34;experience:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Experience&lt;/h3&gt;
+
+&lt;h4 id=&#34;2012-present-graduate-researcher-american-museum-of-natural-history:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;2012 – Present: Graduate Researcher, American Museum of Natural History&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Piloted development and coding of Python product for analysis of genomes&lt;/li&gt;
+&lt;li&gt;Developed computational method to remove contamination from genomic datasets&lt;/li&gt;
+&lt;li&gt;Created and managed relational database for lab specimen collection&lt;/li&gt;
+&lt;li&gt;Led multiple efforts to produce massive sets of genetic sequence data
+&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;education:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Education&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ph.D. Comparative Biology 2016 (anticipated)&lt;br&gt;
+Richard Gilder Graduate School, American Museum of Natural History&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;M.S. Biological Sciences 2013&lt;br&gt;
+Robert Weintraub Program in Systematics and Evolution, The George Washington University&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;B.A. Biological Sciences 2011&lt;br&gt;
+Scholars in Quantitative and Natural Sciences, The George Washington University&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;publications:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Publications&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Rosenfeld JA, Reeves D, Brugler MR, Narechania A, Simon S, Kolokotronis S, Durret R, &lt;strong&gt;Foox J&lt;/strong&gt;, &amp;hellip;, Mason C. (2016). Genome assembly, annotation, and geospatial phylogenomics of the bedbug (&lt;em&gt;Cimex lecularius&lt;/em&gt;). Nature Communications, 7:10164&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Foox J&lt;/strong&gt;, Ringuette M, Desser SS, Siddall ME. (2015). In silico hybridization enables transcriptomic illumination of the nature and evolution of Myxozoa. BMC Genomics 16(1):840&lt;/li&gt;
+&lt;li&gt;Rosenfeld JA, &lt;strong&gt;Foox J&lt;/strong&gt;, DeSalle R. (2015). Insect genome content phylogeny and functional annotation of core insect genomes. Molecular Phylogenetics and Evolution, 97:224-232&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Foox J&lt;/strong&gt;, Brugler MR, Siddall ME, Rodriguez E. (2015). Multiplexed Pyrosequencing of Nine Sea Anemone (Cnidaria: Anthozoa: Hexacorallia: Actiniaria) Mitochondrial Genomes. Mitochondrial DNA 2015:1-7&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Foox J&lt;/strong&gt;, Siddall ME. (2015). The Road to Cnidaria: History of Phylogeny of the Myxozoa. Journal of Parasitology 101:269-274&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;presentations:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Presentations&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Foox J, Siddall ME. “Transcriptomic Illumination of Myxozoan Evolution.” American Society of Parasitologists Annual meeting 2015&lt;/li&gt;
+&lt;li&gt;Foox, J., Siddall, ME. “Phylogenomics of Myxozoa.” American Society of Parasitologists Annual meeting 2014&lt;/li&gt;
+&lt;li&gt;Foox, J., DeSalle, R., Siddall, M. “Small Genome Attraction Obfuscates Phylogenetic Signal.” Evolution 2014&lt;/li&gt;
+&lt;li&gt;Foox, J., Brugler, M., Rodriguez, E. “Evolution of Sea Anemone Mitogenomes Revealed by Next-Generation Pyrosequencing.” Evolution 2013&lt;/li&gt;
+&lt;li&gt;Foox, J., Riordan, G., Lipscomb, D. “Ultrastructural Characterization of a Potentially Novel Genus of Ciliates (Alveolata: Ciliophora).” Second International Congress on Invertebrate Morphology 2011, poster presentation.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;teaching:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Teaching&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;2014. Teaching assistant, Richard Gilder Gradute School, American Museum of Natural History. Course: Next Generation Sequencing.&lt;/li&gt;
+&lt;li&gt;2013. Teaching assistant, Department of Ecology, Evolution, and Environmental Biology, Columbia University. Course: Environmental Biology.&lt;/li&gt;
+&lt;li&gt;2011-2012. Teaching assistant, Department of Biological Sciences, The George Washington University. Courses: Introductory Bio: Cells &amp;amp; Molecules, Invertebrate Zoology. Created, taught, and graded lab sessions, assignments, and exams.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;scholarships-and-awards:6083a88ee3411b0d17ce02d738f69d47&#34;&gt;Scholarships and Awards&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;2015. Marc Dresden Student Travel Award&lt;/li&gt;
+&lt;li&gt;2013. Lerner Gray Memorial Fund for Marine Research. “Mitochondrial Genomics of a bizarre assemblage of cnidarian parasites”&lt;/li&gt;
+&lt;li&gt;2011. Harlan Trust Scholarship. “Morphological and Molecular Description of a new Genus of Prorodontid, Phylum Ciliophora, Class Prostomataea”&lt;/li&gt;
+&lt;li&gt;2010-2011. Luther Rice Collaborative Fellowship. “Refinement of an Immunohistochemical Stain as a Tool for Gathering Morphological Data for Phylogenetic Reconstruction of Ciliates”&lt;/li&gt;
+&lt;li&gt;2009. National Science Foundation Research Experience for Undergraduates Fellowship. “Development of an Immunohistochemical Stain of Ciliate Basal Bodies for Light Microscopy”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>http://jfoox.github.io/research/</link>
+      <pubDate>Mon, 16 May 2016 20:26:23 -0400</pubDate>
+      
+      <guid>http://jfoox.github.io/research/</guid>
+      <description>
+
+&lt;p&gt;&lt;figure style=&#34;float:right&#34;&gt;
+    &lt;img src=&#34;http://jfoox.github.io/img/research1.jpg&#34;&gt;
+&lt;/figure&gt;Myxozoans are some of the strangest animals that you&amp;rsquo;ve probably never heard of. Comprising a group of over 2,200 species of endoparasites, myxozoans are found embedded in the organs of poikilothermic (cold-blooded) vertebrates such as fish and frogs, as well as many worm-like invertebrates such as oligochaetes, in all aquatic (and even some terrestrial) systems around the world. &lt;strong&gt;Myxozoans are the world&amp;rsquo;s smallest animals&lt;/strong&gt;, with the spores of many species as tiny as 10μm &amp;ndash; 1/6th the size of the smallest grain of sand.&lt;/p&gt;
+
+&lt;p&gt;Though the majority of myxozoan species are harmless to its host, &lt;strong&gt;some species are well known pathogens that can quickly devastate populations.&lt;/strong&gt; These include &lt;em&gt;Myxobolus cerebralis&lt;/em&gt;, a parasite of juvenile rainbow trout that causes Whirling Disease, in which degeneration of musculature and spinal tissue causes fish to be unable to swim in a straight line, thus appearing to whirl and chase their tails. Another is &lt;em&gt;Tetracapsuloides bryosalmonae&lt;/em&gt;, the causative agent of Proliferative Kidney Disease, which can cause up to 90% population loss in farm-reared salmon and trout.&lt;/p&gt;
+
+&lt;p&gt;&lt;figure style=&#34;float:left&#34;&gt;
+    &lt;img src=&#34;http://jfoox.github.io/img/morphotypes.png&#34;&gt;
+&lt;/figure&gt;But here&amp;rsquo;s the really strange about myxozoans: &lt;strong&gt;they&amp;rsquo;re very closely related to jellyfish.&lt;/strong&gt; Well, jellyfish and their medusa-forming allies, such as box jellies and hydras. One of the few cells that myxozoans bear, known as the polar capsule, is a complex eversible tubule that aids in attachment of the myxozoan to the integument of its host. As it turns out, polar capsules are homologous (evolutionarily united) to the stinging structures (&amp;ldquo;cnidocytes&amp;rdquo;) found uniquely within the phylum Cnidaria (jellyfish, corals, anemones, etc.). Therefore, despite their total dissimilarity in biology, anatomy, ecology, and lifestyle, myxozoans and jellyfish are essentially cousins. Evolution makes for strange bedfellows.&lt;/p&gt;
+
+&lt;p&gt;Since their first discovery in the mid-19th century, &lt;strong&gt;the evolutionary position of Myxozoa has been controversial,&lt;/strong&gt; and only recently have we confirmed this bizarre position for this group, using a combination of the morphological evidence above and recently available genetic data. I wrote about the history of classification of Myxozoa &lt;a href=&#34;http://www.journalofparasitology.org/doi/abs/10.1645/14-671.1&#34; target=&#34;_blank&#34;&gt;here.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;animals-though-just-barely:42f623b3bad309d5d6619d450af47d40&#34;&gt;Animals—though just barely&lt;/h2&gt;
+
+&lt;p&gt;&lt;figure style=&#34;float:right&#34;&gt;
+    &lt;img src=&#34;http://jfoox.github.io/img/research3_tree.jpg&#34;&gt;
+    &lt;figcaption&gt;
+        &lt;h6&gt;A simplified view of the medusozoan tree. The fully free-living moon jelly &lt;em&gt;Aurelia aurita&lt;/em&gt; is sister to parasitic lineages, including (1) the transitionary &lt;em&gt;Polypodium hydriforme&lt;/em&gt;, which parasitizes paddlefish and sturgeon eggs before emerging and developing into a free-living stolon; (2) malacosporeans, which are myxozoans but have a complex vermiform bauplan with true musculature; (3) the aforementioned oligocellular myxosporeans. &lt;/h6&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;The phylogenetic placement of Myxozoa within Cnidaria implies that myxozoans underwent one of the most extreme transitions to parasitism known to biology. Unlike their macroscopic cnidarian ancestors, myxozoans lack true germ layer differential, musculature, a gastrovascular (digestive) cavity, and a nervous network. In fact, a typical myxosporean can be comprised of as few as five cells: 2 valvogenic cells, which form the proteinacious shell encasing the spore; 2+ capsulogenic cells, which create the polar capsules; and a sporoplasm, a binucleated germative cell that begets daughter spores.&lt;/p&gt;
+
+&lt;p&gt;For a sense of just how reduced these parasites are, consider this: the size different between a myxosporean and a moon jelly is roughly equivalent to the size difference between you and Mt. Everest. The images on the tips of the phylogeny to the right, of course, are not to scale; if they were, the myxospore would be smaller than a single pixel.&lt;/p&gt;
+
+&lt;p&gt;My research focuses on the genetic underpinnings of this reduction. In spite of their extreme shift, what unites myxozoans with their cnidarian allies? How does the genetic repertoire of a polar capsule compare to a nematocyst? And what novel pathways have they developed?&lt;/p&gt;
+
+&lt;p&gt;Genomic evolution
+Recent advances in next-generation sequencing have allowed genomic data to be produced for non-model organisms such as Myxozoa. Just in the last few years, several studies have generated genomic myxozoan sequences for a number of species (e.g., &lt;a href=&#34;http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0054576&#34; target=&#34;_blank&#34;&gt;Nesnidal et al., 2013&lt;/a&gt;; &lt;a href=&#34;http://gbe.oxfordjournals.org/content/6/12/3182&#34; target=&#34;_blank&#34;&gt;Yang et al, 2014&lt;/a&gt;; &lt;a href=&#34;http://www.pnas.org/content/early/2015/11/13/1511468112.short&#34; target=&#34;_blank&#34;&gt;Chang et al, 2015&lt;/a&gt;). This is an impressive rate of progress, considering that beforehand genetic data were only available for a handful of loci (mainly ribosomal genes) for &amp;lt;1% of known species.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;figure&gt;
+    &lt;img src=&#34;http://jfoox.github.io/img/research4_ISH.jpg&#34;  /&gt;
+    &lt;figcaption&gt;
+        &lt;h6&gt;Transcripts unique to &lt;em&gt;Myxobolus cerebralis&lt;/em&gt;, as categorized by Level 3 Gene Ontology, which can give insight into the unique functional genetics of the Myxozoa. For more detail, see &lt;a href=&#34;http://www.biomedcentral.com/1471-2164/16/840/&#34;&gt;In silico hybridization enables transcriptomic illumination of the nature and evolution of Myxozoa (Foox et al., 2015)&lt;/a&gt;.&lt;/h6&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;These data have enabled not only the resolution of the phylogenetic placement of these parasites, but have given us unprecedented insight into the way they function at the molecular level. Using a combination of transcriptomes (protein-coding subsection of the genome that is actively expressed) that I have generated, as well as publicly available datasets, I am working to understand the genomic evolution and functional genetics of the Myxozoa. Recently, I published &lt;a href=&#34;http://www.biomedcentral.com/1471-2164/16/840/&#34; target=&#34;_blank&#34;&gt;a study describing a way to decouple myxozoan from host sequences in transcriptomic datasets, and did a preliminary empirical study of genomic features and functional genetics of &lt;em&gt;Myxobolus cerebralis&lt;/em&gt;&lt;/a&gt;. In the near future, I will leverage multiple transcriptomic sets in a comparative context to reconstruction evolution of the myxozoan lineage as well as differentiation within Myxozoa itself.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Which NBA playoff games have had the most ties and lead changes?</title>
+      <link>http://jfoox.github.io/post/ties-and-leadchanges/</link>
+      <pubDate>Tue, 26 Apr 2016 00:28:16 -0400</pubDate>
+      
+      <guid>http://jfoox.github.io/post/ties-and-leadchanges/</guid>
+      <description>&lt;p&gt;On Sunday, April 17th, the Detroit Pistons played the Cleveland Cavaliers at Quicken Loans Arena in game 1 of their first round match up. The game was notable for its back and forth nature, with a total of 17 lead changes and 21 ties. This got me wondering how this game compares to all other playoff games in NBA history.&lt;/p&gt;
+
+&lt;p&gt;Using data courtesy of &lt;a href=&#34;http://www.basketball-reference.com&#34;&gt;basketball-reference.com&lt;/a&gt;, I combed through all playoff games containing play-by-play information, which span as far back as the 2000-01 season. The distribution of ties and lead changes through the 1,171 playoff games played in that span (including the games so far these 2015-16 playoffs) are plotted below, with bubbles corresponding to number of times that combination of ties/lead changes has occurred. (Note that for our purposes, 0-0 does not count as a tie!)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://jfoox.github.io/images/pic.png&#34; alt=&#34;fun&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;While our game of interest tied the record for number of ties per game (21), three other games had more lead changes than ours (which had 17): 2009 NBA Finals Game 2 (Lakers 101, Magic 96) with 23 lead changes; 2004 Eastern Conference Semifinals Game 5 (Nets 127, Pistons 120) with 24 lead changes; and the all-time record, 2006 Eastern Conference First Round Game 5 (Cavaliers 121, Wizards 120 (OT)) with 28 lead changes, a game in which LeBron James’ 45 points was just enough to outdo Gilbert Arenas’ 44 points. All three of those games were classics and pivotal to their series—and will likely be remembered much better than the first of four wins en route to a Cavaliers sweep of the Pistons this year.&lt;/p&gt;
+
+&lt;p&gt;Some other interesting observations that came from this analysis:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The playoff game with the most lead changes of all time was last year’s classic first round Game 7 between the Spurs and the Clippers. This game featured an astonishing 31 lead changes, including 12 in the fourth quarter alone.&lt;/li&gt;
+&lt;li&gt;The game with the most combined ties (21) and lead changes (28) was the aforementioned 2006 Eastern Conference First Round Game 5, with 8 lead changes occurring in overtime alone. This game could have a case for best single playoff game of all time! (Except perhaps for the fact that the other 20 lead changes came in the first 33 minutes.)&lt;/li&gt;
+&lt;li&gt;Predictably, the most common tie/lead change pair was 0 and 0; a total of 83 out of 1171 games (7.1%) had neither a single tie nor a lead change, meaning the team that scored first enjoyed a wire-to-wire lead en route to victory.&lt;/li&gt;
+&lt;li&gt;153 out of 1171 games (13.1%) had zero lead changes, meaning that in slightly over 1 out of 10 games, the team that scored first would go on to win, even if the other team would tie the game at some point.&lt;/li&gt;
+&lt;li&gt;The highest number of ties without a lead change came in 2008, when the road Lakers held off the home Spurs 93-91 in Game 4 of the Western Conference Finals, despite San Antonio tying the game a total of 5 times. Brent Barry would miss a game-winning three pointer as time expired, and the Lakers would cinch the series in the following game.&lt;/li&gt;
+&lt;li&gt;Finally: incredibly, the game with the highest number of lead changes without a single tie was also between the Spurs and Lakers. Game 4 of the 2004 Western Conference Semifinals featured 7 lead changes but no ties, with the home Lakers winning 98-90. Of course, this game preceded the famous Derek Fisher game winner with 0.4 seconds, a game that contained 8 lead changes and 2 ties.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What is e-value?</title>
+      <link>http://jfoox.github.io/post/what-is-evalue/</link>
+      <pubDate>Wed, 07 Oct 2015 16:48:55 -0400</pubDate>
+      
+      <guid>http://jfoox.github.io/post/what-is-evalue/</guid>
+      <description>&lt;p&gt;A standard practice for assessing primary homology of a gene sequence is through local alignment (e.g., NCBI’s BLAST), in which an input sequence (the “query”) is matched against a particular sequence (the “hit”) in a database of sequences. The metric most commonly used to determine the significance of an alignment between a query and its hit is e-value. Given the ubiquity of this parameter, here is a short guide to explain what it is and how it’s used.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What is e-value?&lt;/strong&gt;&lt;br&gt;
+E-value (short for expect value) is a calculation of the number of sequences in the database that are expected, by chance in a random search, to align equally or more significantly to the query than the hit that was found. It reflects the frequency that you will find an equal or better match in the database for your query sequence. In effect, e-value is an estimate of the hit to have been chosen due to random background noise.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What does the value mean, and what is the range of possible e-values?&lt;/strong&gt;&lt;br&gt;
+An e-value of 1.0 means that you expect one sequence in the database to match the query as well or better than the hit you found. An e-value of 0.0 means zero sequences can/are expected to match as well or better; the closer the e-value is to zero, the more significant (and less of a potential false positive) the match is considered to be.&lt;/p&gt;
+
+&lt;p&gt;Although e-values can range from zero to theoretically infinity, most e-values will be a decimal between 0 and 1, represented by scientific notation (e.g., 1e-05 = 0.00001). Matches above 1.0 are most of the time not considered significant (the default cutoff for blastn, the most inclusive NCBI BLAST search, is 10.0). This does not mean that they are not potentially homologous sequences, just that a random search is expected to find multiple better candidates.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What goes into calculating e-value?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;E-value = K*m*n*e^(-λ*S)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;K,λ = constants based on scoring matrix; m,n = lengths of the two sequences; S = alignment score, which is calculated based on the alignment produced (incorporating matches, mismatches, gaps, etc).&lt;/p&gt;
+
+&lt;p&gt;Therefore, e-value is mostly dependent upon the length of the sequences, the size of the database, and the derived alignment score. This implies that shorter sequences, especially with lower complexity, are less likely to be matched significantly (and are often filtered out). Moreover, e-values derived from searches across databases of different size cannot be compared. An e-value of 6e-32 from a search against a small database is less significant than an e-value of 6e-32 from a large database; as the database grows, the likelihood of the presence of a truly homologous sequence grows in tandem, and consequently the likelihood of a false positive decreases.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Is an e-value the thing same as a p-value?&lt;/strong&gt;&lt;br&gt;
+No. E-value is a frequency metric, whereas p-value is a probability metric. Though both metrics reflect the significance of the query-hit alignment, e-value represents the number of better alignments that are expected to occur by chance, while p-value represents the likelihood that the match in question occurred by chance. (In statistical terms, the e-value is a multiple testing correction of the p-value.)&lt;/p&gt;
+
+&lt;p&gt;NCBI uses e-value as its standard because it provides greater clarity and granularity; “it is easier to understand the difference between, for example, e-value of 5 and 10 than p-values of 0.993 and 0.99995.” Both can be used, but be aware of which you are using and why, because they represent different things.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to retrieve a set of sequences from within a FASTA file with Python</title>
+      <link>http://jfoox.github.io/post/how-to-retrieve-subset-fasta/</link>
+      <pubDate>Tue, 08 Sep 2015 16:53:34 -0400</pubDate>
+      
+      <guid>http://jfoox.github.io/post/how-to-retrieve-subset-fasta/</guid>
+      <description>&lt;p&gt;A common need in bioinformatics is to extract a subset of sequences from within a FASTA file. You might only want sequences from a particular taxon, sequences that were matched in a BLAST search, sequences that you chose by throwing a dart on a map of South America — the reasons are endless. Imagining a file with five nucleotide sequences labeled Seq1-Seq5, and that you only want odd numbered sequences, like so:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Original&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;&lt;strong&gt;Desired&lt;/strong&gt;&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;&lt;strong&gt;Output&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;gt;Seq1&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Seq1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&amp;gt;Seq1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;ACTGCGTATCGACTAGCTA &amp;hellip;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Seq3&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;ACTGCGTATCGACTAGCTA &amp;hellip;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&amp;gt;Seq2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Seq4&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&amp;gt;Seq3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;TACTATATCAGTGTCGCGT &amp;hellip;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;ATGATATGTCGGCCGGTTG &amp;hellip;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&amp;gt;Seq3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&amp;gt;Seq4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;ATGATATGTCGGCCGGTTG &amp;hellip;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;GTATTGATGCATCAGTCGT &amp;hellip;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&amp;gt;Seq4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;GTATTGATGCATCAGTCGT &amp;hellip;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&amp;gt;Seq5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;AATGCGTAAGTAGTCGCGT &amp;hellip;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Once more, Python to the rescue! Create a separate text file with the identifier names of interest (like the second column above), and their extraction can be achieved quickly and easily with the following script:&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/jfoox/3bdeabc263de32f98dd49cabb130fb8b.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Run on command line:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;python seqretriever.py &amp;lt;your_file.fa&amp;gt; &amp;lt;desired_sequences&amp;gt; &amp;lt;desired_output_name&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Lines 9-22 create a temporary deinterleaved version of your FASTA file, except with identifiers and sequences on one line rather than two. This is done so they can easily be populated into a dictionary &lt;strong&gt;all_seqs&lt;/strong&gt; on lines 25-29. The set of desired sequences &lt;strong&gt;desired_seqs&lt;/strong&gt; is created on lines 32-35 by pulling from an external file of sequence names.&lt;/p&gt;
+
+&lt;p&gt;The keys (identifiers) within &lt;strong&gt;all_seqs&lt;/strong&gt; are then searched for overlap with &lt;strong&gt;desired_seqs&lt;/strong&gt;, and the overlapping names are entered into toextract on lines 38-40. These are used to pull out desired sequences (which are stored as values of the identifier keys) from all_seqs, which are exported into the final justdesired FASTA file on lines 42-44.&lt;/p&gt;
+
+&lt;p&gt;Note that we are using sets — unordered collections of unique elements. Because sets do not record order of insertion, the order of the output cannot be controlled, and will likely be different than the order of input. We do this because detecting overlap between sets and dictionaries is much faster than scanning iterable sequences/lists. The former is an O(1) algorithm, meaning its computational time is independent of the size of the dataset, whereas the latter is O(N), meaning its computational time is linearly proportional to the size of the dataset. As you can imagine, once your dataset becomes large enough (e.g., FASTA files with tens of thousands of sequences), you will always want to find a no-growth algorithmic solution! Sets and dictionaries are great solutions for this kind of rapid membership/overlap testing. Happy coding!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A simple script to deinterleave FASTA files</title>
+      <link>http://jfoox.github.io/post/deinterleave-fasta-files/</link>
+      <pubDate>Sun, 06 Sep 2015 10:12:48 -0400</pubDate>
+      
+      <guid>http://jfoox.github.io/post/deinterleave-fasta-files/</guid>
+      <description>&lt;p&gt;One wall I run up against constantly when doing bioinformatics is dealing with interleaved FASTA files. Whether it has to do with aligning sequences, splitting up large files, or retrieving sequences, I often find myself wanting to take interleaved FASTA files and deinterleave them such that entire sequences are on one line. Fortunately, this is easily fixed with a simple Python script:&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/jfoox/ea3228f9d39725e82a126a64d06baccf.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&amp;hellip;in which an interleaved FASTA file is read, and exported line by line — either with surrounding carriage returns, in the case of an identifier line, or without any carriage returns, which unites sequence lines that contain carriage returns at the end of lines in the original file. (The variable &lt;strong&gt;linenum&lt;/strong&gt; is included to eschew the leading carriage return in case of the first sequence, such that the generated file does not begin with an empty line.)&lt;/p&gt;
+
+&lt;p&gt;Run this script on the command line like so:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;python deinterleave.py &amp;lt;your_file.fa&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;And you’ve got a new deinterleaved FASTA file in seconds! Happy coding!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

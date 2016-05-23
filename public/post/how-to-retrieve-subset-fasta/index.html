@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>How to retrieve a set of sequences from within a FASTA file with Python</title>
+
+  <meta name="author" content="" />
+  
+  
+
+  <meta name="generator" content="Hugo 0.15" />
+
+  <link rel="alternate" href="http://jfoox.github.io/index.xml" type="application/rss+xml" title="Jonathan Foox">
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="http://jfoox.github.io/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="http://jfoox.github.io/css/main.css" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://jfoox.github.io/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://jfoox.github.io/css/custom.css" />
+  
+  
+  <meta property="og:title" content="How to retrieve a set of sequences from within a FASTA file with Python" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/" />
+  <meta property="og:image" content="img/headshot.jpg" />
+  
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://jfoox.github.io/">Jonathan Foox</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+          <a title="About" href="/about/">About</a>
+  	      </li>
+  	    
+      
+        
+          <li>
+          <a title="Research" href="/research/">Research</a>
+  	      </li>
+  	    
+      
+        
+          <li>
+          <a title="Projects" href="/categories/project/">Projects</a>
+  	      </li>
+  	    
+      
+      </ul>
+    </div>
+
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+      
+          <a title="Jonathan Foox" href="http://jfoox.github.io/">
+              <img class="avatar-img" src="http://jfoox.github.io/img/headshot.jpg" alt="Jonathan Foox" />
+          </a>
+      
+	  </div>
+	</div>
+
+  </div>
+</nav>
+
+
+    <div role="main" class="container main-content">
+
+      
+        
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>How to retrieve a set of sequences from within a FASTA file with Python</h1>
+      
+      
+      
+      <span class="post-meta">Posted on September 8, 2015</span>
+      
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+          <p>A common need in bioinformatics is to extract a subset of sequences from within a FASTA file. You might only want sequences from a particular taxon, sequences that were matched in a BLAST search, sequences that you chose by throwing a dart on a map of South America — the reasons are endless. Imagining a file with five nucleotide sequences labeled Seq1-Seq5, and that you only want odd numbered sequences, like so:</p>
+
+<table>
+<thead>
+<tr>
+<th><strong>Original</strong></th>
+<th align="center"><strong>Desired</strong></th>
+<th align="right"><strong>Output</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>&gt;Seq1</td>
+<td align="center">Seq1</td>
+<td align="right">&gt;Seq1</td>
+</tr>
+
+<tr>
+<td>ACTGCGTATCGACTAGCTA &hellip;</td>
+<td align="center">Seq3</td>
+<td align="right">ACTGCGTATCGACTAGCTA &hellip;</td>
+</tr>
+
+<tr>
+<td>&gt;Seq2</td>
+<td align="center">Seq4</td>
+<td align="right">&gt;Seq3</td>
+</tr>
+
+<tr>
+<td>TACTATATCAGTGTCGCGT &hellip;</td>
+<td align="center"></td>
+<td align="right">ATGATATGTCGGCCGGTTG &hellip;</td>
+</tr>
+
+<tr>
+<td>&gt;Seq3</td>
+<td align="center"></td>
+<td align="right">&gt;Seq4</td>
+</tr>
+
+<tr>
+<td>ATGATATGTCGGCCGGTTG &hellip;</td>
+<td align="center"></td>
+<td align="right">GTATTGATGCATCAGTCGT &hellip;</td>
+</tr>
+
+<tr>
+<td>&gt;Seq4</td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+
+<tr>
+<td>GTATTGATGCATCAGTCGT &hellip;</td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+
+<tr>
+<td>&gt;Seq5</td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+
+<tr>
+<td>AATGCGTAAGTAGTCGCGT &hellip;</td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+</tbody>
+</table>
+
+<p>Once more, Python to the rescue! Create a separate text file with the identifier names of interest (like the second column above), and their extraction can be achieved quickly and easily with the following script:</p>
+
+<script src="https://gist.github.com/jfoox/3bdeabc263de32f98dd49cabb130fb8b.js"></script>
+
+<p>Run on command line:</p>
+
+<p><code>python seqretriever.py &lt;your_file.fa&gt; &lt;desired_sequences&gt; &lt;desired_output_name&gt;</code></p>
+
+<p>Lines 9-22 create a temporary deinterleaved version of your FASTA file, except with identifiers and sequences on one line rather than two. This is done so they can easily be populated into a dictionary <strong>all_seqs</strong> on lines 25-29. The set of desired sequences <strong>desired_seqs</strong> is created on lines 32-35 by pulling from an external file of sequence names.</p>
+
+<p>The keys (identifiers) within <strong>all_seqs</strong> are then searched for overlap with <strong>desired_seqs</strong>, and the overlapping names are entered into toextract on lines 38-40. These are used to pull out desired sequences (which are stored as values of the identifier keys) from all_seqs, which are exported into the final justdesired FASTA file on lines 42-44.</p>
+
+<p>Note that we are using sets — unordered collections of unique elements. Because sets do not record order of insertion, the order of the output cannot be controlled, and will likely be different than the order of input. We do this because detecting overlap between sets and dictionaries is much faster than scanning iterable sequences/lists. The former is an O(1) algorithm, meaning its computational time is independent of the size of the dataset, whereas the latter is O(N), meaning its computational time is linearly proportional to the size of the dataset. As you can imagine, once your dataset becomes large enough (e.g., FASTA files with tens of thousands of sequences), you will always want to find a no-growth algorithmic solution! Sets and dictionaries are great solutions for this kind of rapid membership/overlap testing. Happy coding!</p>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="http://jfoox.github.io/post/deinterleave-fasta-files/" data-toggle="tooltip" data-placement="top" title="A simple script to deinterleave FASTA files">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="http://jfoox.github.io/post/what-is-evalue/" data-toggle="tooltip" data-placement="top" title="What is e-value?">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+
+    </div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+		      
+		      
+		      
+	    	  
+          
+          
+
+    		  <li>
+      			<a href="http://jfoox.github.io/index.xml" title="RSS">
+      			  <span class="fa-stack fa-lg">
+        				<i class="fa fa-circle fa-stack-2x"></i>
+        				<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+      			  </span>
+      			</a>
+    		  </li>		
+
+        </ul>
+        <p class="copyright text-muted">
+    		  
+    		  &nbsp;&bull;&nbsp;
+    		  2016
+    		  
+    		  
+    		  &nbsp;&bull;&nbsp;
+    		  <a href="http://jfoox.github.io/">Jonathan Foox</a>
+    		  
+  	    </p>
+  	        
+    		<p class="theme-by text-muted">
+    		  Theme by
+    		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+    		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="http://jfoox.github.io/js/jquery-1.11.2.min.js"></script>
+<script src="http://jfoox.github.io/js/bootstrap.min.js"></script>
+<script src="http://jfoox.github.io/js/main.js"></script>
+
+
+
+  </body>
+</html>

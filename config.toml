@@ -1,0 +1,47 @@
+baseurl = "http://jfoox.github.io/"
+languageCode = "en-us"
+title = "Jonathan Foox"
+author = "Jonathan Foox"
+paginate = 10
+theme = "beautifulhugo"
+
+ 
+[params]
+  # Shown in the home page
+  subtitle = "Data science, bioinformatics, and sports"
+  brand = "Jonathan Foox"
+  logo = "img/headshot.jpg"
+  googleAnalytics = "Your Google Analytics tracking ID"
+  disqus = "Your Disqus shortname"
+  # CSS name for highlight.js
+  highlightjs = "androidstudio"
+  dateFormat = "Jan 02 2006, 03:04pm"
+
+[menu]
+  # Shown in the side menu.
+  [[menu.main]]
+    name = "About"
+    pre = "<i class='fa fa-home fa-fw'></i>"
+    weight = 0
+    identifier = "about"
+    url = "/about/"
+  [[menu.main]]
+    name = "Research"
+    pre = "<i class='fa fa-phone fa-fw'></i>"
+    weight = 1
+    url = "/research/"
+  [[menu.main]]
+    name = "Projects"
+    pre = "<i class='fa fa-phone fa-fw'></i>"
+    weight = 2
+    url = "/categories/project/"
+
+[social]
+  # Link your social networking accouns to the side menu
+  # by entering your username or ID.
+  twitter = "jfoox"
+  github = "jfoox"
+  linkedin = "jfoox"
+
+[taxonomies]
+  category = "categories"
