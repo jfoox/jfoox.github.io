@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>What is e-value?</title>
+
+  <meta name="author" content="" />
+  
+  
+
+  <meta name="generator" content="Hugo 0.15" />
+
+  <link rel="alternate" href="http://jfoox.github.io/index.xml" type="application/rss+xml" title="Jonathan Foox">
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="http://jfoox.github.io/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="http://jfoox.github.io/css/main.css" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="http://jfoox.github.io/css/pygment_highlights.css" />
+  <link rel="stylesheet" href="http://jfoox.github.io/css/custom.css" />
+  
+  
+  <meta property="og:title" content="What is e-value?" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="/" />
+  <meta property="og:image" content="img/headshot.jpg" />
+  
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://jfoox.github.io/">Jonathan Foox</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+          <a title="About" href="/about/">About</a>
+  	      </li>
+  	    
+      
+        
+          <li>
+          <a title="Research" href="/research/">Research</a>
+  	      </li>
+  	    
+      
+        
+          <li>
+          <a title="Projects" href="/categories/project/">Projects</a>
+  	      </li>
+  	    
+      
+      </ul>
+    </div>
+
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+      
+          <a title="Jonathan Foox" href="http://jfoox.github.io/">
+              <img class="avatar-img" src="http://jfoox.github.io/img/headshot.jpg" alt="Jonathan Foox" />
+          </a>
+      
+	  </div>
+	</div>
+
+  </div>
+</nav>
+
+
+    <div role="main" class="container main-content">
+
+      
+        
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>What is e-value?</h1>
+      
+      
+      
+      <span class="post-meta">Posted on October 7, 2015</span>
+      
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+          <p>A standard practice for assessing primary homology of a gene sequence is through local alignment (e.g., NCBI’s BLAST), in which an input sequence (the “query”) is matched against a particular sequence (the “hit”) in a database of sequences. The metric most commonly used to determine the significance of an alignment between a query and its hit is e-value. Given the ubiquity of this parameter, here is a short guide to explain what it is and how it’s used.</p>
+
+<p><strong>What is e-value?</strong><br>
+E-value (short for expect value) is a calculation of the number of sequences in the database that are expected, by chance in a random search, to align equally or more significantly to the query than the hit that was found. It reflects the frequency that you will find an equal or better match in the database for your query sequence. In effect, e-value is an estimate of the hit to have been chosen due to random background noise.</p>
+
+<p><strong>What does the value mean, and what is the range of possible e-values?</strong><br>
+An e-value of 1.0 means that you expect one sequence in the database to match the query as well or better than the hit you found. An e-value of 0.0 means zero sequences can/are expected to match as well or better; the closer the e-value is to zero, the more significant (and less of a potential false positive) the match is considered to be.</p>
+
+<p>Although e-values can range from zero to theoretically infinity, most e-values will be a decimal between 0 and 1, represented by scientific notation (e.g., 1e-05 = 0.00001). Matches above 1.0 are most of the time not considered significant (the default cutoff for blastn, the most inclusive NCBI BLAST search, is 10.0). This does not mean that they are not potentially homologous sequences, just that a random search is expected to find multiple better candidates.</p>
+
+<p><strong>What goes into calculating e-value?</strong></p>
+
+<p><code>E-value = K*m*n*e^(-λ*S)</code></p>
+
+<p>K,λ = constants based on scoring matrix; m,n = lengths of the two sequences; S = alignment score, which is calculated based on the alignment produced (incorporating matches, mismatches, gaps, etc).</p>
+
+<p>Therefore, e-value is mostly dependent upon the length of the sequences, the size of the database, and the derived alignment score. This implies that shorter sequences, especially with lower complexity, are less likely to be matched significantly (and are often filtered out). Moreover, e-values derived from searches across databases of different size cannot be compared. An e-value of 6e-32 from a search against a small database is less significant than an e-value of 6e-32 from a large database; as the database grows, the likelihood of the presence of a truly homologous sequence grows in tandem, and consequently the likelihood of a false positive decreases.</p>
+
+<p><strong>Is an e-value the thing same as a p-value?</strong><br>
+No. E-value is a frequency metric, whereas p-value is a probability metric. Though both metrics reflect the significance of the query-hit alignment, e-value represents the number of better alignments that are expected to occur by chance, while p-value represents the likelihood that the match in question occurred by chance. (In statistical terms, the e-value is a multiple testing correction of the p-value.)</p>
+
+<p>NCBI uses e-value as its standard because it provides greater clarity and granularity; “it is easier to understand the difference between, for example, e-value of 5 and 10 than p-values of 0.993 and 0.99995.” Both can be used, but be aware of which you are using and why, because they represent different things.</p>
+
+      </article>
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="http://jfoox.github.io/post/how-to-retrieve-subset-fasta/" data-toggle="tooltip" data-placement="top" title="How to retrieve a set of sequences from within a FASTA file with Python">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="http://jfoox.github.io/post/ties-and-leadchanges/" data-toggle="tooltip" data-placement="top" title="Which NBA playoff games have had the most ties and lead changes?">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+
+    </div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+		      
+		      
+		      
+	    	  
+          
+          
+
+    		  <li>
+      			<a href="http://jfoox.github.io/index.xml" title="RSS">
+      			  <span class="fa-stack fa-lg">
+        				<i class="fa fa-circle fa-stack-2x"></i>
+        				<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+      			  </span>
+      			</a>
+    		  </li>		
+
+        </ul>
+        <p class="copyright text-muted">
+    		  
+    		  &nbsp;&bull;&nbsp;
+    		  2016
+    		  
+    		  
+    		  &nbsp;&bull;&nbsp;
+    		  <a href="http://jfoox.github.io/">Jonathan Foox</a>
+    		  
+  	    </p>
+  	        
+    		<p class="theme-by text-muted">
+    		  Theme by
+    		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+    		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="http://jfoox.github.io/js/jquery-1.11.2.min.js"></script>
+<script src="http://jfoox.github.io/js/bootstrap.min.js"></script>
+<script src="http://jfoox.github.io/js/main.js"></script>
+
+
+
+  </body>
+</html>

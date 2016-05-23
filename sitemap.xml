@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://jfoox.github.io/</loc>
+    <lastmod>2016-05-19T16:06:42-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://jfoox.github.io/post/how-bad-knicks-century/</loc>
+    <lastmod>2016-05-19T16:06:42-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jfoox.github.io/about/</loc>
+    <lastmod>2016-05-16T20:26:23-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jfoox.github.io/research/</loc>
+    <lastmod>2016-05-16T20:26:23-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jfoox.github.io/post/ties-and-leadchanges/</loc>
+    <lastmod>2016-04-26T00:28:16-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jfoox.github.io/post/what-is-evalue/</loc>
+    <lastmod>2015-10-07T16:48:55-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jfoox.github.io/post/how-to-retrieve-subset-fasta/</loc>
+    <lastmod>2015-09-08T16:53:34-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jfoox.github.io/post/deinterleave-fasta-files/</loc>
+    <lastmod>2015-09-06T10:12:48-04:00</lastmod>
+  </url>
+  
+</urlset>
